@@ -1,0 +1,288 @@
+:root {
+    --color-primary: #1A1A2E;
+    --color-secondary: #00BCD4;
+    --color-accent: #FF2E63;
+    --color-background-site: #E0F7FA;
+    --color-background-card: #FFFFFF;
+    --color-text: #1A1A2E;
+    --font-main: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+    --site-width: 1200px;
+}
+
+/* Удален @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap'); 
+   поскольку он уже есть в HTML-файлах через тег <link> */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: var(--color-background-site);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.container {
+    width: var(--site-width);
+    margin: 30px auto;
+    background-color: var(--color-background-card);
+    box-shadow: 0 10px 30px rgba(26, 26, 46, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-main);
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-align: center;
+}
+
+header {
+    background-color: var(--color-primary);
+    color: var(--color-background-card);
+    padding: 20px 0;
+    border-bottom: 5px solid var(--color-accent);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--site-width);
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: var(--color-background-card);
+    text-align: left;
+    font-weight: 900;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--color-background-card);
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.main-content {
+    padding: 50px 80px;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 0;
+    background: linear-gradient(145deg, #f0f4f8, #e0f7fa);
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    color: var(--color-primary);
+    margin-top: 0;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.3em;
+    max-width: 900px;
+    margin: 25px auto 40px;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--color-secondary);
+    color: var(--color-background-card);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s, box-shadow 0.3s;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+}
+
+.button-link:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background-card);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 46, 99, 0.6);
+}
+
+a:not(.button-link) {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+a:not(.button-link):hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+.about-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 40px 0;
+    border: 6px solid var(--color-secondary);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.chronology-container {
+    margin: 40px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    font-size: 1em;
+}
+
+.chronology-caption {
+    font-size: 1.8em;
+    padding: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-background-card);
+    text-align: center;
+    font-weight: bold;
+}
+
+.chronology-header,
+.chronology-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    border-bottom: 1px solid #eee;
+}
+
+.chronology-header {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.header-item,
+.row-item {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.row-item.year {
+    font-weight: 700;
+    background-color: #f0f4f8;
+}
+
+.chronology-row:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.chronology-row:nth-child(odd) {
+    background-color: var(--color-background-card);
+}
+
+ul.personality-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 30px;
+}
+
+ul.personality-list li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><polygon points="6,0 12,12 0,12" fill="%23FF2E63"/></svg>') no-repeat left 8px center;
+    background-size: 12px 12px;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid rgba(0, 188, 212, 0.2);
+    padding-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+.gallery-item {
+    width: calc(33.333% - 27px);
+    text-align: center;
+    box-sizing: border-box;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+}
+
+.gallery-item img {
+    display: block;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin: 0 auto 15px;
+    border-radius: 8px;
+    border: 4px solid var(--color-secondary);
+}
+
+.gallery-item p {
+    font-size: 1em;
+    color: var(--color-text);
+    font-style: normal;
+    font-weight: 500;
+    margin: 5px 0 0;
+}
+
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-background-card);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 1em;
+    border-top: 5px solid var(--color-accent);
+}
+
+footer p {
+    margin: 5px 0;
+}
