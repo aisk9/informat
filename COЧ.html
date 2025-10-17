@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный Кабинет - Музыка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Общие стили и Ночная Тема */
+        :root {
+            --bg-color: #1a1a2e; /* Темно-синий/фиолетовый фон */
+            --text-color: #e4e4e6;
+            --primary-color: #0f4c75; /* Синий для акцентов */
+            --secondary-color: #3b8c6e; /* Зеленый для кнопок/акцентов */
+            --border-color: #2e4a66;
+            --card-bg: #272740;
+            --hover-bg: #353556;
+            --font-family: 'Roboto', sans-serif;
+            --transition-time: 0.3s;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color var(--transition-time);
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            transition: all var(--transition-time);
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* Стиль для полей ввода */
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            margin: 10px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: border-color var(--transition-time);
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(59, 140, 110, 0.5);
+        }
+
+        /* Стиль для кнопок */
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px var(--primary-color);
+        }
+
+        .btn:hover {
+            background-color: #0c3d5a;
+            transform: translateY(-2px); /* Анимация при наведении */
+            box-shadow: 0 6px #0c3d5a;
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px #0c3d5a;
+        }
+        
+        .btn.logout-btn {
+            background-color: #7b2424;
+            box-shadow: 0 4px #5c1b1b;
+        }
+        
+        .btn.logout-btn:hover {
+            background-color: #5c1b1b;
+            box-shadow: 0 6px #5c1b1b;
+        }
+        
+        .btn.logout-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px #5c1b1b;
+        }
+
+        #error-message {
+            color: #ff6b6b;
+            margin-top: 15px;
+            min-height: 20px;
+        }
+
+        /* Личный кабинет */
+        #profile-container {
+            display: none;
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            text-align: left;
+        }
+
+        #welcome-header {
+            font-size: 2em;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            text-align: center;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        /* Список песен */
+        #songs-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #songs-list li {
+            background-color: var(--hover-bg);
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color var(--transition-time), transform 0.1s ease;
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        #songs-list li:hover {
+            background-color: #4a4a70;
+            transform: scale(1.02);
+        }
+
+        .song-info {
+            flex-grow: 1;
+        }
+
+        .song-title {
+            font-weight: 700;
+        }
+
+        .song-artist {
+            font-size: 0.9em;
+            color: #a0a0a0;
+        }
+
+        .play-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .play-btn:hover {
+            background-color: #2f7a5c;
+            transform: scale(1.05);
+        }
+        
+        .play-btn:active {
+            transform: scale(0.98);
+        }
+        
+        /* Поле для фотоальбомов */
+        #photo-album-area {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            text-align: center;
+            min-height: 150px;
+            background-color: var(--bg-color);
+        }
+        
+        #photo-album-area h3 {
+            color: var(--text-color);
+            margin-top: 0;
+        }
+        
+        /* CSS Анимации */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="login-container" class="container">
+        <h1>Вход в Личный Кабинет</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Имя пользователя" required>
+            <input type="password" id="password" placeholder="Пароль" required>
+            <button type="submit" class="btn">Войти</button>
+            <div id="error-message"></div>
+        </form>
+    </div>
+
+    <div id="profile-container" class="container hidden">
+        <h2 id="welcome-header">Добро пожаловать, ИМЯ!</h2>
+        
+        <h2>Ваш плейлист</h2>
+        <ul id="songs-list">
+            </ul>
+        
+        <div id="photo-album-area">
+            <h3>Место для ваших фотоальбомов</h3>
+            <p>Вы можете вставить сюда изображения или другие элементы альбомов.</p>
+            </div>
+
+        <button id="logout-btn" class="btn logout-btn">Выход</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

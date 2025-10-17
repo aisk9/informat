@@ -1,0 +1,14 @@
+{
+  "user": {
+    "username": "айсулу",
+    "password": "1234"
+  }
+}
+  "songs": [
+    {"artist": "Chemlab", "title": "Electic molecular"},
+    {"artist": "Clubnit 2011", "title": "Noisuf X"},
+    {"artist": "HIM", "title": "Wicked Game"},
+    {"artist": "And One", "title": "Panzermench"},
+    {"artist": "KMFDM", "title": "Bait & Snitch"}
+  ]
+}
