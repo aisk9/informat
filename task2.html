@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задача №2 — Замена символов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>body {
+  font-family: sans-serif;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.container {
+  background: rgba(255,255,255,0.1);
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  animation: slideIn 1s ease;
+}
+
+input, button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 90%;
+}
+
+button {
+  background: #ffffff44;
+  color: white;
+  border: 1px solid #fff;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ffffff66;
+  transform: scale(1.05);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+</style>
+  <div class="container">
+    <h1>Замена символов в строке</h1>
+    <input id="dateInput" type="text" value="2025-10-16">
+    <button onclick="replaceSymbols()">Преобразовать</button>
+    <p id="dateResult"></p>
+  </div>
+  <script src="script123.js"></script>
+</body>
+</html>
